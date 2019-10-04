@@ -1,0 +1,17 @@
+{
+  "name": "drafter.js-cli",
+  "version": "1.0.0",
+  "description": "CLI for drafter.js",
+  "author": {
+    "email": "jaceju@gmail.com",
+    "name": "Jace Ju"
+  },
+  "license": "MIT",
+  "bin": {
+    "drafter.js-cli": "./bin/cli.js"
+  },
+  "dependencies": {
+    "commander": "^3.0.2",
+    "drafter.js": "^3.0.1"
+  }
+}
