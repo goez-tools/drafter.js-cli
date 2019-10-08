@@ -35,11 +35,6 @@ const parseAction = (outputFilePath) => {
     };
 };
 
-const buildContentFrom = (filename, relativePath = '.') => {
-    const inputFilePath = `${relativePath}/${filename}`;
-    return fs.readFileSync(inputFilePath).toString();
-};
-
 const basicAction = (inputFilePath, progrom) => {
     if (inputFilePath) {
         hasInputFilePath = true;
@@ -49,7 +44,7 @@ const basicAction = (inputFilePath, progrom) => {
     const requireBlueprintName = true;
 
     try {
-        const content = buildContentFrom(inputFilePath);
+        const content = fs.readFileSync(inputFilePath).toString();
         if (isValidate) {
             drafter.validate(content, { requireBlueprintName }, validateAction);
         } else {
@@ -67,7 +62,7 @@ const basicAction = (inputFilePath, progrom) => {
  */
 program
     .name('drafter.js-cli')
-    .version('1.0.0', '-v, --version')
+    .version('1.0.1', '-v, --version')
     .description('API Blueprint Parser by drafter.js')
     .arguments('<input_file>')
     .option('-o, --output <output_file>', 'save output Parse Result into file')
